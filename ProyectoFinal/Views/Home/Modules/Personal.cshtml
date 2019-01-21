@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Personal";
+}
+
+<dl class="menulateral">
+    @{ Html.RenderAction("Modulos", "Home"); }
+</dl>
+
+<div class="col-lg-12 informativo">
+    <h2 class="tituloModulo">@ViewBag.Title</h2>
+    <h5>Sección encargada de la Gestión del Personal</h5>
+
+    <div class="tab">
+        <button class="tablinks" onclick="abrirSeccion(event, 'SuelJorn')" id="defaultOpen">Sueldos y Jornales</button>
+        <button class="tablinks" onclick="abrirSeccion(event, 'AsigFami')">Asignaciones Familiares</button>
+        <button class="tablinks" onclick="abrirSeccion(event, 'GrupFami')">Grupo Familiar</button>
+    </div>
+
+    <div id="SuelJorn" class="tabcontent">
+        <h3>Sueldos y Jornales</h3>
+        <p>Sueldos y Jornales es no sé que es la verdad.</p>
+    </div>
+
+    <div id="AsigFami" class="tabcontent">
+        <h3>Asignaciones Familiares</h3>
+        <p>Asignaciones Familiares son bla bla bla.</p>
+    </div>
+
+    <div id="GrupFami" class="tabcontent">
+        <h3>Grupo Familiar</h3>
+        <p>Grupo Familiar es la ´conformación del grupo familiar del personal.</p>
+    </div>
+</div>
