@@ -1,24 +1,23 @@
-﻿@{
+﻿@using ProyectoFinal.Models;
+
+@model ModuloProveedores
+@{
     ViewBag.Title = "Compra";
 }
 
+
+
 <dl class="menulateral">
-    @{ Html.RenderAction("Modulos", "Home"); }
+    @{ Html.RenderAction("Modulos", "Home", "Compra"); }
 </dl>
 
 <div class="col-lg-12 informativo">
     <h2 class="tituloModulo">@ViewBag.Title</h2>
     <h3>@ViewBag.Message</h3>
+    
+    <div class="col-lg-12 informativo">
+        <h4>Proveedores</h4>
+        @ViewBag.Proveedor
+    </div>
 
-    <address>
-        Sección Compra<br />
-        jajajajajjajja<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
-
-    <address>
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
 </div>
