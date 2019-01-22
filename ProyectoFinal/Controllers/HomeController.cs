@@ -32,7 +32,7 @@ namespace ProyectoFinal.Controllers
 
         public ActionResult Compra()
         {
-            return View("Modules/Compra");
+            return View("Modules/Compra", ObtenerListaProveedores());
         }
 
         public ActionResult Venta()

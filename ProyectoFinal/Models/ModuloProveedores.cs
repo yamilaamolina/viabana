@@ -8,5 +8,6 @@ namespace ProyectoFinal.Models
         public List<Proveedor> ListaProveedores { get; set; }
 
         public List<SelectListItem> ListaComboBox { get; set; }
+
     }
 }

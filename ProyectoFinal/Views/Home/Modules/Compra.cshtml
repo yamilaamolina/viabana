@@ -3,6 +3,7 @@
 @model ModuloProveedores
 @{
     ViewBag.Title = "Compra";
+
 }
 
 
@@ -14,10 +15,12 @@
 <div class="col-lg-12 informativo">
     <h2 class="tituloModulo">@ViewBag.Title</h2>
     <h3>@ViewBag.Message</h3>
-    
-    <div class="col-lg-12 informativo">
-        <h4>Proveedores</h4>
-        @ViewBag.Proveedor
-    </div>
+    <h4>Proveedores</h4>
+    <select name="proveedores">
+            @foreach (var proveedor in Model.ListaProveedores)
+            {
+                <option>@proveedor.RazonSocial</option>
+            }
+      </select>
 
 </div>
