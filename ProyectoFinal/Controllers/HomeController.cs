@@ -32,8 +32,7 @@ namespace ProyectoFinal.Controllers
 
         public ActionResult Compra()
         {
-            
-            return View("Modules/Compra", ObtenerLista());
+            return View("Modules/Compra");
         }
 
         public ActionResult Venta()
@@ -84,108 +83,5 @@ namespace ProyectoFinal.Controllers
 
             return listaProveedores;
         }
-
-        private List<Producto> ObtenerListaProductos()
-        {
-            var producto1 = new Producto();
-            var producto2 = new Producto();
-            var producto3 = new Producto();
-
-            var listaAux = new List<Producto>();
-            var listaProductos = new List<Producto>();
-
-            producto1.NombreProducto = "Crema Cookie 10Kg";
-            producto1.PrecioCompra = 750.00;
-            producto1.PrecioVenta = 0;
-            producto1.ProductoId = 1;
-            listaAux.Add(producto1);
-
-            producto2.NombreProducto = "Crema Americana 10Kg";
-            producto2.PrecioCompra = 750.00;
-            producto2.PrecioVenta = 0;
-            producto2.ProductoId = 2;
-            listaAux.Add(producto2);
-
-            producto1.NombreProducto = "Chocolate amargo 10Kg";
-            producto1.PrecioCompra = 800.00;
-            producto1.PrecioVenta = 0;
-            producto1.ProductoId = 3;
-            listaAux.Add(producto3);
-
-            listaProductos = listaAux;
-            return listaProductos;
-        }
-
-        private ModuloProveedores ObtenerLista()
-        {
-            var proveedor1 = new Proveedor();
-            var proveedor2 = new Proveedor();
-            var proveedor3 = new Proveedor();
-            var listaProveedoresAux = new List<Proveedor>();
-            var listaProveedores = new ModuloProveedores();
-            var listaCombobox = new List<SelectListItem>();
-
-            proveedor1.RazonSocial = "Milkaut";
-            proveedor1.CUIT = 27504659873;
-            proveedor1.Telefono = "381-5478569";
-            proveedor1.Email = "proveedores@milkaut.com";
-            proveedor1.Direccion = "San Miguel de Tucuman";
-            listaProveedoresAux.Add(proveedor1);
-
-            proveedor2.RazonSocial = "Colorante S.A.";
-            proveedor2.CUIT = 28263214563;
-            proveedor2.Telefono = "381-5478569";
-            proveedor2.Email = "proveedores@colorante.com";
-            proveedor2.Direccion = "San Miguel de Tucuman";
-            listaProveedoresAux.Add(proveedor2);
-
-            proveedor3.RazonSocial = "Lunaa";
-            proveedor3.CUIT = 27456987233;
-            proveedor3.Telefono = "381-5478569";
-            proveedor3.Email = "proveedores@lunaa.com";
-            proveedor3.Direccion = "San Miguel de Tucuman";
-            listaProveedoresAux.Add(proveedor3);
-
-            listaCombobox.Add(new SelectListItem { Value = "1", Text = proveedor1.RazonSocial});
-            listaCombobox.Add(new SelectListItem { Value = "2", Text = proveedor2.RazonSocial});
-            listaCombobox.Add(new SelectListItem { Value = "3", Text = proveedor3.RazonSocial});
-
-            listaProveedores.ListaComboBox = listaCombobox;
-
-            return listaProveedores;
-        }
-
-        //public Compra ObtenerListaCompras()
-        //{
-        //    var listadeproductos = this.ObtenerListaProductos();
-        //    var lineadecompra1 = new LineaCompra();
-        //    var lineadecompra2 = new LineaCompra();
-        //    var lineadecompra3 = new LineaCompra();
-
-        //    lineadecompra1.ProductoID = listadeproductos[0].ProductoId;
-        //    lineadecompra1.DescripcionProducto = listadeproductos[0].NombreProducto;
-        //    lineadecompra1.Cantidad = 3;
-        //    lineadecompra1.Precio = listadeproductos[0].PrecioCompra * lineadecompra1.Cantidad;
-
-        //    lineadecompra2.ProductoID = listadeproductos[1].ProductoId;
-        //    lineadecompra2.DescripcionProducto = listadeproductos[1].NombreProducto;
-        //    lineadecompra2.Cantidad = 2;
-        //    lineadecompra2.Precio = listadeproductos[1].PrecioCompra * lineadecompra2.Cantidad;
-
-        //    lineadecompra3.ProductoID = listadeproductos[2].ProductoId;
-        //    lineadecompra3.DescripcionProducto = listadeproductos[2].NombreProducto;
-        //    lineadecompra3.Cantidad = 4;
-        //    lineadecompra3.Precio = listadeproductos[2].PrecioCompra * lineadecompra3.Cantidad;
-
-        //    var compra = new Compra();
-        //    compra.CompraID = 123;
-        //    compra.Proveedor = ObtenerListaProveedores().ListaProveedores[0];
-        //    compra.ListaProductos.Add(lineadecompra1);
-        //    compra.ListaProductos.Add(lineadecompra2);
-        //    compra.ListaProductos.Add(lineadecompra3);
-
-        //    return compra;
-        //}
     }
-
 }
