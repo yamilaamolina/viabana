@@ -158,7 +158,6 @@
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\ModuloProveedores.cs" />
     <Compile Include="Models\ModuloVentas.cs" />
-    <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Proveedor.cs" />
     <Compile Include="Models\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,7 +172,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\viabanalogo.png" />
-    <Compile Include="Models\ModuloProductos.cs" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
