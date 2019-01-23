@@ -32,7 +32,8 @@ namespace ProyectoFinal.Controllers
 
         public ActionResult Compra()
         {
-            return View("Modules/Compra", ObtenerListaProveedores());
+            
+            return View("Modules/Compra", ObtenerLista());
         }
 
         public ActionResult Venta()
@@ -84,14 +85,14 @@ namespace ProyectoFinal.Controllers
             return listaProveedores;
         }
 
-        private ModuloCompras ObtenerListaProductos()
+        private List<Producto> ObtenerListaProductos()
         {
             var producto1 = new Producto();
             var producto2 = new Producto();
             var producto3 = new Producto();
 
             var listaAux = new List<Producto>();
-            var listaProductos = new ModuloCompras();
+            var listaProductos = new List<Producto>();
 
             producto1.NombreProducto = "Crema Cookie 10Kg";
             producto1.PrecioCompra = 750.00;
@@ -111,7 +112,7 @@ namespace ProyectoFinal.Controllers
             producto1.ProductoId = 3;
             listaAux.Add(producto3);
 
-            listaProductos.ListaProductos = listaAux;
+            listaProductos = listaAux;
             return listaProductos;
         }
 
@@ -153,6 +154,38 @@ namespace ProyectoFinal.Controllers
 
             return listaProveedores;
         }
+
+        //public Compra ObtenerListaCompras()
+        //{
+        //    var listadeproductos = this.ObtenerListaProductos();
+        //    var lineadecompra1 = new LineaCompra();
+        //    var lineadecompra2 = new LineaCompra();
+        //    var lineadecompra3 = new LineaCompra();
+
+        //    lineadecompra1.ProductoID = listadeproductos[0].ProductoId;
+        //    lineadecompra1.DescripcionProducto = listadeproductos[0].NombreProducto;
+        //    lineadecompra1.Cantidad = 3;
+        //    lineadecompra1.Precio = listadeproductos[0].PrecioCompra * lineadecompra1.Cantidad;
+
+        //    lineadecompra2.ProductoID = listadeproductos[1].ProductoId;
+        //    lineadecompra2.DescripcionProducto = listadeproductos[1].NombreProducto;
+        //    lineadecompra2.Cantidad = 2;
+        //    lineadecompra2.Precio = listadeproductos[1].PrecioCompra * lineadecompra2.Cantidad;
+
+        //    lineadecompra3.ProductoID = listadeproductos[2].ProductoId;
+        //    lineadecompra3.DescripcionProducto = listadeproductos[2].NombreProducto;
+        //    lineadecompra3.Cantidad = 4;
+        //    lineadecompra3.Precio = listadeproductos[2].PrecioCompra * lineadecompra3.Cantidad;
+
+        //    var compra = new Compra();
+        //    compra.CompraID = 123;
+        //    compra.Proveedor = ObtenerListaProveedores().ListaProveedores[0];
+        //    compra.ListaProductos.Add(lineadecompra1);
+        //    compra.ListaProductos.Add(lineadecompra2);
+        //    compra.ListaProductos.Add(lineadecompra3);
+
+        //    return compra;
+        //}
     }
 
 }
