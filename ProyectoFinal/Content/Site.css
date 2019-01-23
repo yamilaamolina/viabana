@@ -158,4 +158,10 @@ textarea {
     margin-left:25px;
     position:relative;
 }
+/*boton para agregar venta*/
+.ventaButton {
+    background-color: #f0b400 !important;
+    color:white !important;
+    font-size: 17px !important;
+}
     

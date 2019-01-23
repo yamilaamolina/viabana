@@ -7,7 +7,8 @@ namespace ProyectoFinal.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Modals/VentaModal");
         }
+
     }
 }

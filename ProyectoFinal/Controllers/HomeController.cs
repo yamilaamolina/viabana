@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -37,7 +38,7 @@ namespace ProyectoFinal.Controllers
 
         public ActionResult Venta()
         {
-            return View("Modules/Venta");
+            return View("Modules/Venta", ObtenerVentas());
         }
 
         public ActionResult Proveedor()
@@ -82,6 +83,34 @@ namespace ProyectoFinal.Controllers
             listaProveedores.ListaProveedores = listaProveedoresAux;
 
             return listaProveedores;
+        }
+        private ModuloVentas ObtenerVentas()
+        {
+            var venta1 = new Venta();
+            var venta2 = new Venta();
+            var venta3 = new Venta();
+            var ListaVentasAux = new List<Venta>();
+            var ListaVentas = new ModuloVentas();
+            DateTime date1 = new DateTime(2010, 8, 18);
+
+            venta1.idVenta = 15212;
+            venta1.totalVenta = 121.5;
+            venta1.fecha = date1;
+            ListaVentasAux.Add(venta1);
+
+            venta2.idVenta = 15212;
+            venta2.totalVenta = 121.5;
+            venta2.fecha = date1;
+            ListaVentasAux.Add(venta2);
+
+            venta3.idVenta = 15212;
+            venta3.totalVenta = 121.5;
+            venta3.fecha = date1;
+            ListaVentasAux.Add(venta3);
+
+            ListaVentas.ListaVentas = ListaVentasAux;
+            return ListaVentas;
+
         }
     }
 }
