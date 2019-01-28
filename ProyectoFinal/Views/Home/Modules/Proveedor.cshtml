@@ -13,18 +13,20 @@
     <h1 class="estiloHelveticaTitulo">@ViewBag.Title</h1>
     <h3>@ViewBag.Message</h3>
 
-    <div>
-        <button type="button" id="agregarProveedor" class="btn proveedorButton col-lg-offset-10" style="float:right" data-toggle="modal" data-target="#newProv">
-            Agregar Proveedor
-        </button>
-    </div>
 
-    <table class="table table-hover" style="top: 25px; position:relative;">
+    @*<div>
+            <button type="button" id="agregarProveedor" class="btn proveedorButton col-lg-offset-10" style="float:right" data-toggle="modal" data-target="#newProv">
+                Agregar Proveedor
+            </button>
+        </div>*@
+
+    <table class="table table-hover" style="top: 10px; position:relative;">
         <tr>
             <td><strong>Razón Social</strong></td>
             <td><strong>CUIT</strong></td>
             <td><strong>Teléfono</strong></td>
             <td><strong>E-mail</strong></td>
+            <td><strong>Dirección</strong></td>
             <td></td>
             <td></td>
         </tr>
@@ -36,100 +38,179 @@
                 <td>@proveedor.CUIT</td>
                 <td>@proveedor.Telefono</td>
                 <td>@proveedor.Email</td>
-                <td><span id="ok" class="glyphicon glyphicon-pencil delbtn" data-toggle="modal" data-target="#editProv"></span></td>
-                <td><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#deleteProv"></span></td>
+                <td>@proveedor.Direccion</td>
+                <td><span id="ok editarProv" class="glyphicon glyphicon-pencil delbtn" data-toggle="collapse" data-target="#abmProveedor"></span></td>
+                <td><span id="ok elimimnarProv" class="glyphicon glyphicon-trash delbtn" data-toggle="collapse" d ata-target="#abmProveedor"></span></td>
             </tr>
         }
 
     </table>
 
-    <div class="modal fade" id="newProv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" style="height:500px;">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div>
-                        <span class="glyphicon glyphicon-user" style="margin-left: 0px; margin-top: 19px;position:absolute;"></span>
-                        <h4 class="modal-title estiloHelvetica col-lg-5" id="myModalLabel" style="margin-left: 10px;">Nuevo Proveedor</h4>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="nombre">Razón Social:</label>
-                            <input class="form-control" type="text" style="width:300px !important" id="nombre" />
-                        </div>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="cuit">CUIT:</label>
-                            <input class="form-control" type="text" id="cuit" />
-                        </div>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="telefono">Teléfono:</label>
-                            <input class="form-control" type="number" id="telefono" />
-                        </div>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="email">E-mail:</label>
-                            <input class="form-control" type="email" style="width:400px !important" id="email" />
-                        </div>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="direccion">Dirección:</label>
-                            <input class="form-control" type="text" style="width:700px !important" id="direccion" />
-                        </div>
+    <div class="col-lg-12" style="margin-top: 40px;">
+        <button id="agregarProveedor" type="button" class="btn proveedorButton col-lg-offset-10" style="float:right" data-toggle="collapse" data-target="#abmProveedor">
+            Agregar Proveedor
+        </button>
+    </div>
+    <div id="abmProveedor" class="collapse">
+        <div id="titulo" class="estiloHelvetica col-lg-11" style="height:50px"><span class="glyphicon glyphicon-user"></span> Proovedor</div>
 
-                        <div position:relative;">
-                            <button type="button" class="btn proveedorButton" style="float:right; margin-left:10px;">
-                                Cancelar
-                            </button>
-                        </div>
+        <form>
+            <div class="col-lg-5">
+                <div class="form-group">
+                    <label class="estiloHelveticaForm" for="razonSocial">Razón Social:</label>
+                    <input class="form-control" type="text" style="width:300px !important" id="razonSocial" />
+                </div>
+                <div class="form-group">
+                    <label class="estiloHelveticaForm" for="cuit">CUIT:</label>
+                    <input class="form-control" type="text" id="cuit" />
+                </div>
+                <div class="form-group">
+                    <label class="estiloHelveticaForm" for="telefono">Teléfono:</label>
+                    <input class="form-control" type="text" id="telefono" />
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="form-group">
+                    <label class="estiloHelveticaForm" for="email">E-mail:</label>
+                    <input class="form-control" type="email" style="width:400px !important" id="email" />
+                </div>
+                <div class="form-group">
+                    <label class="estiloHelveticaForm" for="direccion">Dirección:</label>
+                    <input class="form-control" type="text" style="width:700px !important" id="direccion" />
+                </div>
+            </div>
+        </form>
+
+        <div class="col-lg-12" style="height:100px;">
+            <div>
+                <button id="cancelarProv" type="button" class="btn proveedorButton" style="float:right; margin-left:10px;">
+                    Cancelar
+                </button>
+            </div>
+            <div>
+                <button id="confirmarProv" type="button" class="btn proveedorButton" style="float:right;" data-toggle="collapse">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    @*<div class="modal fade" id="newProv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="height:500px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         <div>
-                            <button type="button" class="btn proveedorButton" style="float:right;" data-toggle="collapse">
-                                Confirmar
-                            </button>
+                            <span class="glyphicon glyphicon-user" style="margin-left: 0px; margin-top: 19px;position:absolute;"></span>
+                            <h4 class="modal-title estiloHelvetica col-lg-5" id="myModalLabel" style="margin-left: 10px;">Nuevo Proveedor</h4>
                         </div>
-                    </form>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="nombre">Razón Social:</label>
+                                <input class="form-control" type="text" style="width:300px !important" id="nombre" />
+                            </div>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="cuit">CUIT:</label>
+                                <input class="form-control" type="text" id="cuit" />
+                            </div>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="telefono">Teléfono:</label>
+                                <input class="form-control" type="number" id="telefono" />
+                            </div>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="email">E-mail:</label>
+                                <input class="form-control" type="email" style="width:400px !important" id="email" />
+                            </div>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="direccion">Dirección:</label>
+                                <input class="form-control" type="text" style="width:700px !important" id="direccion" />
+                            </div>
+
+                            <div position:relative;">
+                                <button type="button" class="btn proveedorButton" style="float:right; margin-left:10px;">
+                                    Cancelar
+                                </button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn proveedorButton" style="float:right;" data-toggle="collapse">
+                                    Confirmar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="modal fade" id="editProv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" style="height:500px;">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div>
-                        <span class="glyphicon glyphicon-pencil" style="margin-left: 0px; margin-top: 19px;position:absolute;"></span>
-                        <h4 class="modal-title estiloHelvetica col-lg-5" id="myModalLabel" style="margin-left: 10px;">Editar Proveedor</h4>
+        <div class="modal fade" id="editProv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="height:500px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div>
+                            <span class="glyphicon glyphicon-pencil" style="margin-left: 0px; margin-top: 19px;position:absolute;"></span>
+                            <h4 class="modal-title estiloHelvetica col-lg-5" id="myModalLabel" style="margin-left: 10px;">Editar Proveedor</h4>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="nombre">Razón Social:</label>
+                                <input class="form-control" type="text" style="width:300px !important" id="nombre" />
+                            </div>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="cuit">CUIT:</label>
+                                <input class="form-control" type="text" id="cuit" />
+                            </div>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="telefono">Teléfono:</label>
+                                <input class="form-control" type="number" id="telefono" />
+                            </div>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="email">E-mail:</label>
+                                <input class="form-control" type="email" style="width:400px !important" id="email" />
+                            </div>
+                            <div class="form-group">
+                                <label class="estiloHelveticaForm" for="direccion">Dirección:</label>
+                                <input class="form-control" type="text" style="width:700px !important" id="direccion" />
+                            </div>
+
+                            <div position:relative;">
+                                <button type="button" class="btn proveedorButton" style="float:right; margin-left:10px;">
+                                    Cancelar
+                                </button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn proveedorButton" style="float:right;">
+                                    Confirmar
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="nombre">Razón Social:</label>
-                            <input class="form-control" type="text" style="width:300px !important" id="nombre" />
-                        </div>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="cuit">CUIT:</label>
-                            <input class="form-control" type="text" id="cuit" />
-                        </div>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="telefono">Teléfono:</label>
-                            <input class="form-control" type="number" id="telefono" />
-                        </div>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="email">E-mail:</label>
-                            <input class="form-control" type="email" style="width:400px !important" id="email" />
-                        </div>
-                        <div class="form-group">
-                            <label class="estiloHelveticaForm" for="direccion">Dirección:</label>
-                            <input class="form-control" type="text" style="width:700px !important" id="direccion" />
-                        </div>
+            </div>
+        </div>
 
+        <div class="modal fade" id="deleteProv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="height:170px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <span class="glyphicon glyphicon-trash" style="margin-left: 0px; margin-top: 19px;position:absolute;"></span>
+                        <h4 class="modal-title estiloHelvetica col-lg-5" id="myModalLabel" style="margin-left: 10px;">Eliminar Proveedor</h4>
+                    </div>
+                    <div class="modal-body">
+                        <a class="estiloHelveticaForm">¿Está seguro de eliminar el Proveedor?</a>
                         <div position:relative;">
                             <button type="button" class="btn proveedorButton" style="float:right; margin-left:10px;">
                                 Cancelar
@@ -140,38 +221,10 @@
                                 Confirmar
                             </button>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="deleteProv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" style="height:170px;">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <span class="glyphicon glyphicon-trash" style="margin-left: 0px; margin-top: 19px;position:absolute;"></span>
-                    <h4 class="modal-title estiloHelvetica col-lg-5" id="myModalLabel" style="margin-left: 10px;">Eliminar Proveedor</h4>
-                </div>
-                <div class="modal-body">
-                    <a class="estiloHelveticaForm">¿Está seguro de eliminar el Proveedor?</a>
-                    <div position:relative;">
-                        <button type="button" class="btn proveedorButton" style="float:right; margin-left:10px;">
-                            Cancelar
-                        </button>
-                    </div>
-                    <div>
-                        <button type="button" class="btn proveedorButton" style="float:right;">
-                            Confirmar
-                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>*@
 
 
 </div>
