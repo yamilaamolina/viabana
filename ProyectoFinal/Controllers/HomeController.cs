@@ -85,49 +85,19 @@ namespace ProyectoFinal.Controllers
             return listaProveedores;
         }
 
-        private ModuloCompras ObtenerDatosDeCompras()
+        public static ModuloCompras ObtenerDatosDeCompras()
         {
             var proveedor1 = new Proveedor();
             var proveedor2 = new Proveedor();
             var proveedor3 = new Proveedor();
             var listaProveedoresAux = new List<Proveedor>();
             var listaModuloCompra = new ModuloCompras();
-
-            proveedor1.RazonSocial = "Milkaut";
-            proveedor1.CUIT = 27504659873;
-            proveedor1.Telefono = "381-5478569";
-            proveedor1.Email = "proveedores@milkaut.com";
-            proveedor1.Direccion = "San Miguel de Tucuman";
-            listaProveedoresAux.Add(proveedor1);
-
-            proveedor2.RazonSocial = "Colorante S.A.";
-            proveedor2.CUIT = 28263214563;
-            proveedor2.Telefono = "381-5478569";
-            proveedor2.Email = "proveedores@colorante.com";
-            proveedor2.Direccion = "San Miguel de Tucuman";
-            listaProveedoresAux.Add(proveedor2);
-
-            proveedor3.RazonSocial = "Lunaa";
-            proveedor3.CUIT = 27456987233;
-            proveedor3.Telefono = "381-5478569";
-            proveedor3.Email = "proveedores@lunaa.com";
-            proveedor3.Direccion = "San Miguel de Tucuman";
-            listaProveedoresAux.Add(proveedor3);
-
-            listaModuloCompra.ListaProveedores = listaProveedoresAux;
-
+            var listaProductos1 = new List<Producto>();
+            var listaProductos2 = new List<Producto>();
+            var listaProductos3 = new List<Producto>();
             var producto1 = new Producto();
             var producto2 = new Producto();
             var producto3 = new Producto();
-
-            var lineadecompra1 = new LineaCompra();
-            var lineadecompra2 = new LineaCompra();
-            var lineadecompra3 = new LineaCompra();
-            var lineadecompraAux1 = new List<LineaCompra>();
-            var lineadecompraAux2 = new List<LineaCompra>();
-
-            var compra1 = new Compra();
-            var compra2 = new Compra();
 
             producto1.IdProducto = 1;
             producto1.NombreProducto = "Coca";
@@ -140,6 +110,51 @@ namespace ProyectoFinal.Controllers
             producto3.IdProducto = 3;
             producto3.NombreProducto = "Sprite";
             producto3.Precio = 70;
+
+            listaProductos1.Add(producto1);
+            listaProductos1.Add(producto2);
+
+            listaProductos2.Add(producto1);
+            listaProductos2.Add(producto3);
+
+            listaProductos3.Add(producto2);
+            listaProductos3.Add(producto3);
+
+            proveedor1.RazonSocial = "Milkaut";
+            proveedor1.CUIT = 27504659873;
+            proveedor1.Telefono = "381-5478569";
+            proveedor1.Email = "proveedores@milkaut.com";
+            proveedor1.Direccion = "San Miguel de Tucuman";
+            proveedor1.listaProductos = listaProductos1;
+            listaProveedoresAux.Add(proveedor1);
+
+            proveedor2.RazonSocial = "Colorante S.A.";
+            proveedor2.CUIT = 28263214563;
+            proveedor2.Telefono = "381-5478569";
+            proveedor2.Email = "proveedores@colorante.com";
+            proveedor2.Direccion = "San Miguel de Tucuman";
+            proveedor2.listaProductos = listaProductos2;
+            listaProveedoresAux.Add(proveedor2);
+
+            proveedor3.RazonSocial = "Lunaa";
+            proveedor3.CUIT = 27456987233;
+            proveedor3.Telefono = "381-5478569";
+            proveedor3.Email = "proveedores@lunaa.com";
+            proveedor3.Direccion = "San Miguel de Tucuman";
+            proveedor3.listaProductos = listaProductos3;
+            listaProveedoresAux.Add(proveedor3);
+
+            listaModuloCompra.ListaProveedores = listaProveedoresAux;
+
+            var lineadecompra1 = new LineaCompra();
+            var lineadecompra2 = new LineaCompra();
+            var lineadecompra3 = new LineaCompra();
+            var lineadecompraAux1 = new List<LineaCompra>();
+            var lineadecompraAux2 = new List<LineaCompra>();
+
+            var compra1 = new Compra();
+            var compra2 = new Compra();
+
 
             lineadecompra1.Producto = producto1;
             lineadecompra1.Cantidad = 3;

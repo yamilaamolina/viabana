@@ -3,35 +3,18 @@
 @model ModuloCompras
 @{
     ViewBag.Title = "Compra";
-    //ViewBag.Proveedores = Model.ListaProveedores as IEnumerable<SelectListItem>;
 
 }
 
-<dl class="menulateral">
-    @{ Html.RenderAction("Modulos", "Home"); }
-</dl>
-
-<div class="col-lg-12 informativo">
-
-    @*<div>
-        <button type="button" id="Nueva Compra" data-toggle="modal" data-target="#newCompra">
-            Agregar Nueva Compra
-        </button>
-    </div>*@
-
-    <div>
-        <label>
-            Proveedor
-        </label>
-        <select>
-            @foreach (var proveedor in Model.ListaProveedores)
-            {
-               <option>@proveedor.RazonSocial</option>
-            }
-        </select>
-        <button class="btn btn-danger">Ver productos</button>      
-    </div>
-    @*<table  class="table table-hover table-condensed table-responsive container" style="top: 25px; position:absolute">
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+    <dl class="menulateral">
+        @{ Html.RenderAction("Modulos", "Home");
+        }
+    </dl>
+<div class="col-lg-10 informativo">
+    <h3>Lista de compras</h3>
+    <script src="~/Scripts/compra.js"></script>
+    <table class="table table-hover" style="top: 25px; position:relative">
         <tr>
             <td><strong>ID Compra</strong></td>
             <td><strong>Proveedor</strong></td>
@@ -47,9 +30,49 @@
                 <td>@compra.Proveedor.RazonSocial</td>
                 <td>@compra.TotalCompra</td>
                 <td>@compra.FechaCompra.Date</td>
-                <td><span id="ok" class="glyphicon glyphicon-pencil delbtn" data-toggle="modal" data-target="#editProv"></span></td>
-                <td><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#deleteProv"></span></td>
+                <td><span id="ok" class="glyphicon glyphicon-pencil delbtn"></span></td>
+                <td><span class="glyphicon glyphicon-trash"></span></td>
             </tr>
         }
-    </table>*@
+    </table>
+    <div class="col-lg-12" style="margin-top: 40px;">
+        <button id="agregarCompra" type="button" class="btn proveedorButton col-lg-offset-10" style="float:right" data-toggle="collapse" data-target="#abmCompra">
+            Agregar Compra
+        </button>
+    </div>
+    <div id="abmCompra" class="collapse">
+        <div id="titulo" class="estiloHelvetica col-lg-11" style="height:50px"><span class="glyphicon glyphicon-shopping-cart"></span> Nueva compra</div>
+
+        <form>
+            <div class="col-lg-5">
+                <div class="form-group">
+                    <div>
+                        <label class="estiloHelveticaForm" for="razonSocial">Proveedor</label>
+                    </div>
+                    <select class="form-control" style="float:left" id="listaProveedores">
+                        @foreach (var proveedor in Model.ListaProveedores)
+                        {
+                            <option value="@proveedor.CUIT" id="idProveedor">@proveedor.RazonSocial</option>
+                        }
+                    </select>
+                    <input type="button" class="btn btn-primary" id="botonVerProductos" style="float:left" value="Ver productos" data-toggle="collapse" data-target="#cargaProductos" data-url="@Url.Action("DevolverLista","Compra", new {index = "param-index"})"/>
+                </div>
+                <div class="form-group" id="result">
+                </div>
+            </div>
+            <div class="col-lg-5 collapse" id="cargaProductos">
+                <div class="form-group">
+                    <h1></h1>
+                    <table class="table table-hover tablaCargaProductos">
+                        <tr>
+                            <td><strong>Producto</strong></td>
+                            <td><strong>Precio</strong></td>
+                            <td><strong>Cantidad</strong></td>
+                            <td><strong>SubTotal</strong></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
