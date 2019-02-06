@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoFinal.Models
 {
@@ -14,5 +15,7 @@ namespace ProyectoFinal.Models
         public string Email { get; set; }
 
         public string Direccion { get; set; }
+
+        public List<Producto> listaProductos { get; set; }
     }
 }

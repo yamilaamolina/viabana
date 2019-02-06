@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Producto>
+
+
+<div class="form-group" style="position:relative; margin-top:70px">
+
+    <script src="~/Scripts/compra.js"></script>
+    <table id="tablaProductos">
+        <tr>
+            <td width="15%"><strong>ID</strong></td>
+            <td width="50%"><strong>Producto</strong></td>
+            <td width="15%"><strong>Precio</strong></td>
+            <td width="10%"><strong>Cantidad</strong></td>
+            <td width="10%"></td>
+           
+        </tr>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td class="tdId" width="15%">@producto.IdProducto</td>
+                <td class="tdNombre" width="50%">@producto.NombreProducto</td>
+                <td class="tdPrecio" width="15%">@producto.Precio</td>
+                <td width="10%"><input type="number" class="cantidadProducto" style="width:50px;" value="1" min="1" max="10"/></td>
+                <td width="10%"><span class="glyphicon glyphicon-plus btnAgregarProducto"></span></td>                
+            </tr>
+        }
+
+    </table>
+</div>
