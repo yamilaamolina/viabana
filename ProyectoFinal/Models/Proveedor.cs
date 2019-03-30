@@ -5,7 +5,8 @@ namespace ProyectoFinal.Models
 {
     public class Proveedor
     {
-        [Key]
+        public int ProveedorId { get; set; }
+        
         public long CUIT { get; set; }
 
         public string RazonSocial { get; set; }

@@ -5,7 +5,6 @@
     ViewBag.Title = "Compra";
 
 }
-
 <script src="~/Scripts/jquery-3.3.1.js"></script>
     <dl class="menulateral">
         @{ Html.RenderAction("Modulos", "Home");
@@ -14,7 +13,7 @@
 <div class="col-lg-10 informativo">
     <h3>Lista de compras</h3>
     <script src="~/Scripts/compra.js"></script>
-    <table class="table table-hover" style="top: 25px; position:relative">
+    <table class="table table-hover" id="tablaDeCompras" style="top: 25px; position:relative">
         <tr>
             <td><strong>ID Compra</strong></td>
             <td><strong>Proveedor</strong></td>
@@ -26,7 +25,7 @@
         @foreach (var compra in Model.ListaDeCompra)
         {
             <tr>
-                <td id="idcompra">@compra.IdCompra</td>
+                <td id="idcompra">@compra.CompraId</td>
                 <td>@compra.Proveedor.RazonSocial</td>
                 <td>@compra.TotalCompra</td>
                 <td>@compra.FechaCompra.Date</td>
@@ -36,11 +35,11 @@
         }
     </table>
     <div class="col-lg-12" style="margin-top: 40px;">
-        <button id="agregarCompra" type="button" class="btn proveedorButton col-lg-offset-10" style="float:right" data-toggle="collapse" data-target="#abmCompra">
+        <button id="agregarCompra" type="button" class="btn proveedorButton col-lg-offset-10" style="float:right" data-toggle="collapse" data-target=".abmCompra">
             Agregar Compra
         </button>
     </div>
-    <div id="abmCompra" class="collapse">
+    <div class="collapse abmCompra">
         <div id="titulo" class="estiloHelvetica col-lg-11" style="height:50px"><span class="glyphicon glyphicon-shopping-cart"></span> Nueva compra</div>
 
         <form>
@@ -55,23 +54,32 @@
                             <option value="@proveedor.CUIT" id="idProveedor">@proveedor.RazonSocial</option>
                         }
                     </select>
-                    <input type="button" class="btn btn-primary" id="botonVerProductos" style="float:left" value="Ver productos" data-toggle="collapse" data-target="#cargaProductos" data-url="@Url.Action("DevolverLista","Compra", new {index = "param-index"})"/>
+                    <input type="button" class="btn btn-primary" id="botonVerProductos" style="float:left" value="Ver productos" data-toggle="collapse" data-url="@Url.Action("DevolverLista","Compra", new {index = "param-index"})"/>
                 </div>
                 <div class="form-group" id="result">
                 </div>
             </div>
-            <div class="col-lg-5 collapse" id="cargaProductos">
-                <div class="form-group">
-                    <h1></h1>
-                    <table class="table table-hover tablaCargaProductos">
-                        <tr>
-                            <td><strong>Producto</strong></td>
-                            <td><strong>Precio</strong></td>
-                            <td><strong>Cantidad</strong></td>
-                            <td><strong>SubTotal</strong></td>
-                        </tr>
-                    </table>
+            <div class="col-lg-6 collapse abmCompra">
+                <div class="form-group" style="height:170px; width:500px; overflow:auto">
+                    <table class="table table-hover tablaCargaProductos" style="margin-top:20px; margin-left:10px; float:left; width:90%;">
+                        <thead>
+                            <tr>
+                                <td width="40%"><strong>Producto</strong></td>
+                                <td width="15%"><strong>Precio</strong></td>
+                                <td width="15%"><strong>Cantidad</strong></td>
+                                <td width="20%"><strong>SubTotal</strong></td>
+                                <td width="10%"></td>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyProductos"></tbody>
+                    </table>   
                 </div>
+                <label style="margin-left:10px;">Total de la compra: </label>
+                <input type="number" id="totalCompra" value="0" readonly/>
+            </div>
+            <div class="col-lg-1 collapse abmCompra">
+                <input type="button" class="btn btn-danger" value="Confirmar" id="agregarACompra" style="float:right; margin-left:10px; margin-top:20px; width:100px;" />
+                <input type="button" class="btn btn-primary" value="Cancelar" id="cancelarCarga" style="float:right; margin-left:10px; margin-top:20px; width:100px;" />
             </div>
         </form>
     </div>

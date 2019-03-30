@@ -24,11 +24,11 @@ namespace ProyectoFinal.Controllers
                 var producto1 = new Producto();
                 var producto2 = new Producto();
 
-                producto1.IdProducto = 1;
+                producto1.ProductoId = 1;
                 producto1.NombreProducto = "Leche";
                 producto1.Precio = 70.00;
 
-                producto2.IdProducto = 2;
+                producto2.ProductoId = 2;
                 producto2.NombreProducto = "Azucar";
                 producto2.Precio = 70.00;
 
@@ -40,11 +40,11 @@ namespace ProyectoFinal.Controllers
                 var producto1 = new Producto();
                 var producto2 = new Producto();
 
-                producto1.IdProducto = 3;
+                producto1.ProductoId = 3;
                 producto1.NombreProducto = "Cosa1";
                 producto1.Precio = 70.00;
 
-                producto2.IdProducto = 4;
+                producto2.ProductoId = 4;
                 producto2.NombreProducto = "Cosa2";
                 producto2.Precio = 70.00;
 
@@ -56,11 +56,11 @@ namespace ProyectoFinal.Controllers
                 var producto1 = new Producto();
                 var producto2 = new Producto();
 
-                producto1.IdProducto = 5;
+                producto1.ProductoId = 5;
                 producto1.NombreProducto = "Cosa3";
                 producto1.Precio = 70.00;
 
-                producto2.IdProducto = 6;
+                producto2.ProductoId = 6;
                 producto2.NombreProducto = "Cosa4";
                 producto2.Precio = 70.00;
 
