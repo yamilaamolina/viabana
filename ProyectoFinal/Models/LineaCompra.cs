@@ -7,6 +7,7 @@ namespace ProyectoFinal.Models
 {
     public class LineaCompra
     {
+        public int LineaCompraId { get; set; }
         public int Cantidad { get; set; }
         public Producto Producto { get; set; }
         public double Subtotal { get; set; }

@@ -99,15 +99,15 @@ namespace ProyectoFinal.Controllers
             var producto2 = new Producto();
             var producto3 = new Producto();
 
-            producto1.IdProducto = 1;
+            producto1.ProductoId = 1;
             producto1.NombreProducto = "Coca";
             producto1.Precio = 80;
 
-            producto2.IdProducto = 2;
+            producto2.ProductoId = 2;
             producto2.NombreProducto = "Fanta";
             producto2.Precio = 90;
 
-            producto3.IdProducto = 3;
+            producto3.ProductoId = 3;
             producto3.NombreProducto = "Sprite";
             producto3.Precio = 70;
 
@@ -174,7 +174,7 @@ namespace ProyectoFinal.Controllers
             lineadecompraAux2.Add(lineadecompra2);
             lineadecompraAux2.Add(lineadecompra3);
 
-            compra1.IdCompra = 1;
+            compra1.CompraId = 1;
             compra1.Proveedor = proveedor1;
             compra1.FechaCompra = DateTime.Now;
             compra1.LineaDeCompra = lineadecompraAux1;
@@ -185,7 +185,7 @@ namespace ProyectoFinal.Controllers
             }
             compra2.TotalCompra = totalcompra1;
 
-            compra2.IdCompra = 2;
+            compra2.CompraId = 2;
             compra2.Proveedor = proveedor3;
             compra2.FechaCompra = DateTime.Now;
             compra2.LineaDeCompra = lineadecompraAux2;

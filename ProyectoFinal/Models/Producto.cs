@@ -7,7 +7,7 @@ namespace ProyectoFinal.Models
 {
     public class Producto
     {
-        public int IdProducto { get; set; }
+        public int ProductoId { get; set; }
         public string NombreProducto { get; set; }
         public double Precio { get; set; }
     }
