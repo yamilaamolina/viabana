@@ -140,17 +140,17 @@ textarea {
 }
 
 /*Boton de Proveedores*/
-.proveedorButton {
+/*.botonAmarillo {
     background-color: #f0b400 !important;
     color: white !important;
     font-size: 17px !important;
 }
 
-.proveedorButton:active,
-.proveedorButton:hover,
-.proveedorButton:focus {
+.botonAmarillo:active,
+.botonAmarillo:hover,
+.botonAmarillo:focus {
     outline: 1px dotted #ffff00 !important;
-}
+}*/
 
 /*labels del formulario defs proveedores*/
 .fieldForm {

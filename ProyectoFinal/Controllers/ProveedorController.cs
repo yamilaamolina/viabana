@@ -7,7 +7,7 @@ namespace ProyectoFinal.Controllers
     {
         public ActionResult EditarProveedor()
         {
-            return View("Modals/ProveedorModal");
+            return View();
         }
     }
 }

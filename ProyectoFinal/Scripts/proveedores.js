@@ -5,13 +5,13 @@ $("#agregarProveedor").click(function () {
 
 //editar o eliminar proveedor
 $('.delbtn').on('click', function () {
-    var $row = jQuery(this).closest('tr');
+    var $row = $(this).closest('tr');
     var $columns = $row.find('td');
 
     $columns.addClass('row-highlight');
     var values = "";
 
-    jQuery.each($columns, function (i, item) {
+    $.each($columns, function (i, item) {
         switch(i) {
             case 0:
                 $("#razonSocial").val(item.innerHTML);
@@ -34,11 +34,11 @@ $('.delbtn').on('click', function () {
 
 //eliminar proveedor
 $('#eliminarProv').on('click', function () {
-
+    $('#confirmarProv').attr("id", "confirmarEliminarProv");
 });
 
 //confirmar proveedor
-$('#confirmarProv').on('click', function () {
+$('#confirmarEliminarProv').on('click', function () {
 
 });
 
